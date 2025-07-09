@@ -1,0 +1,121 @@
+@charset "UTF-8";
+
+@import url('https://fonts.googleapis.com/css2?family=Passion+One:wght@400;700;900&family=Sriracha&display=swap');
+
+/** Ao usar a shorthand "font" posso colocar também a propriedade "small-caps" para deixar as letras maiúsculas! */
+/** DETALHE, o VW é útil mas não é o mais optimal. O melhor a se usar é o "MEDIA-QUERIES" que ainda vamos aprender.*/
+:root{
+    --title-font: normal bolder 10vw 'Passion One', Arial, Helvetica, sans-serif;
+    --content-font: normal 500 3.5vw 'Sriracha', Arial, Helvetica, sans-serif;
+    --font01: Verdana, Tahoma, sans-serif;
+}
+
+/* section pre{
+    white-space: pre-line; */ /** Ao invés de usar vários "BRs", eu simplesmente posso usar essa tag "white-space: pre-line" que ele deixa como se estivesse com o BR. OBS: Essa propriedade somente apaga a parte branca ao usar o "PRE". */
+
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+html, body{
+    min-height: 100vh;
+    background-color: darkgray;
+    font-family: var(--font01);
+}
+
+header{
+    background-color: black;
+    color: white;
+    text-align: center;
+}
+
+/** "text-transform: uppercase;" Aqui deixa a letra MAIÚSCULA! Por isso o meu não estava igual!*/
+/** Ao usar a shorthand "font" posso colocar também a propriedade "small-caps" para deixar as letras maiúsculas! */
+header h1{
+    padding-top: 50px;
+    font-variant: small-caps; /** Essa daqui deixa as letras em MAIÚSCULO mas as primeiras letras são maiores!! Essa é "melhor". */
+    font: var(--title-font);
+}
+
+/** Guanabara usou essa "técnica" para deixar "centralizado" pois foi padding-top: 50px do H1 e padding-bottom: 50px do Parágrafo dentro do header. */
+header p{
+    padding-bottom: 50px; 
+}
+
+ /** Tinha esquecido mas ao colocar vírgula "," você >adiciona< um tagging group! */
+header a, footer a{ 
+    color: white;
+    text-decoration: none;
+    font-weight: bolder;
+}
+
+/** Bem melhor e poupa linhas de código! Ao usar a vírgula para adicionar outra tagging group. */
+header a:hover, footer a:hover{ 
+    text-decoration: underline;
+}
+
+/** Bom demais colocar o VH pois ao mudar o tamanho da janela, ele já se adapta. Por isso "view-port height"! */
+/** Aqui colocamos o padding-top e paddin-bottom usando "VH" para dar um espaçamento entre as sections.*/
+section{
+    padding-top: 10vh; 
+    padding-bottom: 10vh; 
+    line-height: 2em;
+    padding-left: 30px;
+    font: var(--content-font);
+}
+
+section.normal{
+    background-color: white;
+    color: black;
+}
+
+section.imagem{
+    background-color: rgb(133, 128, 128);
+    color: white;
+    box-shadow: inset 06px 06px 13px 0px rgba(0, 0, 0, 0.5);
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+/** Se lembra daquele problema que estava cortando as palavras? Pois é. Use o "DISPLAY: inline-block". Que ele vai se adaptar ao tamanho da tela! */
+section.imagem > p{
+    background-color: rgba(0, 0, 0, 0.548);
+    display: inline-block;
+    padding: 05px;
+    text-shadow: 03px 01px 01px black;
+}
+
+section#img01{
+    background-image: url(imagens/background001.jpg);
+    background-repeat: no-repeat;
+    background-position: right center;
+}
+
+/** Como pode ver, usei o shorthand sem o "background: cover" e nem o "attachment" pois já coloquei na class "imagem" ali em cima.*/
+/** E só pra não esquecer a sequência do shorthand: */
+/** Fui tirar o attachment para deixar na class "image" ali em cima mas não foi. Creio que o shorthand tem que ser completo.*/
+/*
+
+background-color:
+background-image: url('')
+background-repeat:
+background-attachment:
+background-position:
+background-size:
+
+*/
+section#img02{
+    background: url(imagens/background002.jpg) no-repeat fixed center right;
+}
+
+section > p{
+    padding-bottom: 2em;
+}
+
+footer{
+    background-color: black;
+    color: white;
+    padding: 10px;
+    text-align: center;
+}
